@@ -1,0 +1,20 @@
+﻿.ant-layout {
+    height: 100%;
+}
+
+#head-menu {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    padding-right: 24px;
+}
+
+.img-row {
+    height: 250px;
+    padding: 5px;
+}
+
+.img-item {
+    height: 100%;
+    width: 100%;
+}

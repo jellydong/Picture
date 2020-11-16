@@ -1,0 +1,97 @@
+﻿@using Picture.Client.Serivices
+@using Picture.Shared
+@using System.Collections.Generic
+@using System.Threading.Tasks
+@using AntDesign.JsInterop
+@inherits LayoutComponentBase
+
+<Layout>
+    <Sider Style="overflow: auto;height: 100vh;z-index: 2" NoTrigger>
+        <div class="logo" />
+        <Menu Theme="MenuTheme.Dark" Mode="MenuMode.Inline"
+              DefaultSelectedKeys=@(new[]{"home"})>
+            <MenuItem Key="home" RouterLink="/">
+                <Icon Type="home" Theme="outline" />
+                <span>最新壁纸</span>
+            </MenuItem>
+            @{ RenderFragment tagsMenu =
+                @<span>
+                    <Icon Type="tags" Theme="outline" />
+                    分类壁纸
+                </span>; }
+            <SubMenu Key="tags" TitleTemplate=@tagsMenu>
+                @foreach (var tag in TagItem360.data)
+                {
+                    <MenuItem Key="@tag.id">
+                        @tag.name
+                    </MenuItem>
+                }
+            </SubMenu>
+            <MenuItem Key="bing" RouterLink="/reward">
+                <Icon Type="windows" Theme="outline" />
+                <span>Bing壁纸</span>
+            </MenuItem>
+        </Menu>
+    </Sider>
+    <Layout Class="site-layout">
+        <Header Class="site-layout-background" Style="position: fixed; z-index: 1;top:0;width: 100%;margin-left: -200px">
+            <Menu Mode="MenuMode.Horizontal" id="head-menu">
+                <MenuItem Key="money-collect" RouterLink="reward">
+                    <Icon Type="money-collect" Theme="outline" />
+                    打赏
+                </MenuItem>
+                <MenuItem Key="github" OnClick="ToGitHub">
+                    <Icon Type="github" Theme="outline" />
+                    GitHub
+                </MenuItem>
+            </Menu>
+        </Header>
+        <Content Class="site-layout-background" Style="margin: 84px 16px;padding: 24px;min-height: 280px;flex-shrink: 0;">
+            @Body
+        </Content>
+        <Footer Style="position: fixed; z-index: 1; bottom: 0; width: 100%;">Ant Design ©2018 Created by Ant UED</Footer>
+    </Layout>
+</Layout>
+
+<style>
+    .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .trigger:hover {
+            color: #1890ff;
+        }
+
+    .logo {
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 16px;
+    }
+
+    .site-layout .site-layout-background {
+        background: #fff;
+    }
+</style>
+@code
+{
+    [Inject]
+    public IPictureService PictureService { get; set; }
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    public Picture360<TagItem360> TagItem360 { get; set; } = new Picture360<TagItem360>() { data = new List<TagItem360>() };
+
+    protected override async Task OnInitializedAsync()
+    {
+        TagItem360 = await PictureService.Get360Tags();
+        await base.OnInitializedAsync();
+    }
+    private void ToGitHub()
+    {
+        NavigationManager.NavigateTo("https://github.com/jellydong");
+    }
+}

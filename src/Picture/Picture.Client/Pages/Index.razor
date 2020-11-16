@@ -1,0 +1,28 @@
+﻿@page "/"
+
+@using Picture.Client.Serivices
+@using Picture.Shared
+@using System.Collections.Generic
+@using System.Threading.Tasks
+<Row Justify="start">
+    @foreach (var em in Picture360.data)
+    {
+        <AntDesign.Col Class="img-row"  Span="6">
+        <img class="img-item" src="@em.url_mid" />
+        </AntDesign.Col>
+    }
+</Row>
+@code {
+
+    [Inject]
+    public IPictureService PictureService { get; set; }
+
+    public Picture360<PictureItem360> Picture360 { get; set; } = new Picture360<PictureItem360>() { data = new List<PictureItem360>() };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Picture360 = await PictureService.Get360PicNews(0, 50);
+        await base.OnInitializedAsync();
+    }
+
+}

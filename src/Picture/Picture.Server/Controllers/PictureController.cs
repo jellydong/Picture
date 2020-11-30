@@ -38,5 +38,14 @@ namespace Picture.Server.Controllers
                 $"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAllCategoriesV2&from=360chrome");
             return await tags;
         }
+        [HttpGet("Get360PicsByTag/{cid}/{start}/{count}")]
+        public async Task<Picture360<PictureItem360>> Get360PicsByTag(int cid, int start, int count)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            var imgs = httpClient.GetFromJsonAsync<Picture360<PictureItem360>>(
+                $"http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAppsByCategory&order=create_time&cid={cid}&start={start}&count={count}&from=360chrome");
+            return await imgs;
+        }
     }
 }

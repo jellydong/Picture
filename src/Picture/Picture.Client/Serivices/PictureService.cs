@@ -22,24 +22,14 @@ namespace Picture.Client.Serivices
         }
 
         public async Task<Picture360<TagItem360>> Get360Tags()
-        {
+        { 
             return await _httpClient.GetFromJsonAsync<Picture360<TagItem360>>(
                 $"Picture/Get360Tags");
-        }
-
-        public Task<Picture360<PictureItem360>> Get360PicsByTag(string cid, int start, int count)
+        } 
+        public async Task<Picture360<PictureItem360>> Get360PicsByTag(string cid, int start, int count)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<Picture360<TagItem360>> Get360Tags(string cid, int start, int count)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<Picture360<PictureItem360>> Get360PicsByTag(int start, int count)
-        {
-            throw new System.NotImplementedException();
+            return await _httpClient.GetFromJsonAsync<Picture360<PictureItem360>>(
+               $"Picture/Get360PicsByTag/{cid}/{start}/{count}");
         }
 
         public Task<PictureBing> GetBingPic(string cid, int start, int count)

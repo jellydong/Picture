@@ -1,4 +1,5 @@
-﻿@page "/"
+﻿@page "/tagPics/{TagId}"
+
 <AntList Grid="gutter" DataSource="@Pictures" Loading="@InitLoading">
     <ChildContent Context="item">
         <ListItem Style="position:relative" Class="">

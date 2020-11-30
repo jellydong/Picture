@@ -22,14 +22,14 @@
             <SubMenu Key="tags" TitleTemplate=@tagsMenu>
                 @foreach (var tag in TagItem360.data)
                 {
-                    <MenuItem Key="@tag.id">
+                    <MenuItem Key="@tag.id" RouterLink="@("/tagPics/"+tag.id)">
                         @tag.name
                     </MenuItem>
                 }
             </SubMenu>
             <MenuItem Key="bing" RouterLink="/reward">
-                <Icon Type="windows" Theme="outline" />
-                <span>Bing壁纸</span>
+                <Icon Type="money-collect" Theme="outline" />
+                <span>打赏</span>
             </MenuItem>
         </Menu>
     </Sider>

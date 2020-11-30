@@ -2,6 +2,19 @@
     height: 100%;
 }
 
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+    text-align: center;
+    line-height: 32px;
+}
+
+    .logo span {
+        color: white;
+        font-weight: bold;
+    }
+
 #head-menu {
     display: inline-block;
     float: right;

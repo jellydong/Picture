@@ -7,7 +7,9 @@
 
 <Layout>
     <Sider Style="overflow: auto;height: 100vh;z-index: 2" NoTrigger>
-        <div class="logo" />
+        <div class="logo">
+            <span>免费壁纸</span>
+        </div>
         <Menu Theme="MenuTheme.Dark" Mode="MenuMode.Inline"
               DefaultSelectedKeys=@(new[]{"home"})>
             <MenuItem Key="home" RouterLink="/">
@@ -49,7 +51,7 @@
         <Content Class="site-layout-background" Style="margin: 84px 16px;padding: 24px;min-height: 280px;flex-shrink: 0;">
             @Body
         </Content>
-        <Footer Style="position: fixed; z-index: 1; bottom: 0; width: 100%;">Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer Style="position: fixed; z-index: 1; bottom: 0; width: 100%;">前端框架Ant Design,Copyright © 2020 免费壁纸</Footer>
     </Layout>
 </Layout>
 

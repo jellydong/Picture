@@ -7,6 +7,14 @@ using Picture.Shared;
 
 namespace Picture.Server.Controllers
 {
+
+    /// <summary>
+    /// 
+    /// tags http://cdn.apc.360.cn/index.php?c=WallPaper&a=getAllCategoriesV2&from=360chrome
+    /// new  http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAppsByOrder&order=create_time&start=【0开始】&count=【加载数】&from=360chrome
+    /// 专区  http://wallpaper.apc.360.cn/index.php?c=WallPaper&a=getAppsByCategory&cid=【分类ID】&start=【0开始】&count=【加载数】&from=360chrome
+    /// Bing http://cn.bing.com/HPImageArchive.aspx?format=js&idx=【0开始】&n=【加载数】
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class PictureController : ControllerBase

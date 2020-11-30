@@ -1,0 +1,18 @@
+﻿@page "/pic"
+<AntList  Grid="gutter" DataSource="@Pictures" Loading="@InitLoading">
+    <ChildContent Context="item">
+        <ListItem>
+            <Card Hoverable Style="width: 240px" Cover="coverTemplate">
+                <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
+            </Card>
+        </ListItem>
+    </ChildContent>
+    <LoadMore>
+        @if (!InitLoading && !Loading)
+        {
+            <div class="demo-loadmore-btn-content ">
+                <Button OnClick="OnLoadMore">loading more</Button>
+            </div>
+        }
+    </LoadMore>
+</AntList>

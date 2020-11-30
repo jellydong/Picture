@@ -22,7 +22,7 @@ namespace Picture.Client.Pages
         public bool Loading { get; set; } = false;
 
         public List<PictureItem360> Pictures { get; set; } = new List<PictureItem360>();
-
+         
         private ListGridType gutter = new ListGridType
         { 
             Xs = 3,

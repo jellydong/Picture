@@ -1,17 +1,35 @@
 ﻿@page "/pic"
-<AntList  Grid="gutter" DataSource="@Pictures" Loading="@InitLoading">
+<AntList Grid="gutter" DataSource="@Pictures" Loading="@InitLoading">
     <ChildContent Context="item">
-        <ListItem>
-            <Card Hoverable Style="width: 240px" Cover="coverTemplate">
-                <CardMeta Title="Europe Street beat" Description="www.instagram.com"/>
-            </Card>
+        <ListItem Style="position:relative" Class="">
+            <div class="img-div">
+                <img class="img-item" src="@item.url_mid" />
+                <ul class="down" title="下载壁纸">
+                    <li>
+                        <a href="@item.img_1024_768" target="_blank">1024*768</a>
+                    </li>
+                    <li>
+                        <a href="@item.img_1280_1024" target="_blank">1280_1024</a>
+                    </li>
+                    <li>
+                        <a href="@item.img_1366_768" target="_blank">1366_768</a>
+                    </li>
+                    <li>
+                        <a href="@item.img_1600_900" target="_blank">1600_900</a>
+                    </li>
+                    <li>
+                        <a href="@item.url" target="_blank">原图</a>
+                    </li>
+                </ul>
+            </div>
+           
         </ListItem>
     </ChildContent>
     <LoadMore>
         @if (!InitLoading && !Loading)
         {
             <div class="demo-loadmore-btn-content ">
-                <Button OnClick="OnLoadMore">loading more</Button>
+                <Button OnClick="OnLoadMore">加载更多</Button>
             </div>
         }
     </LoadMore>

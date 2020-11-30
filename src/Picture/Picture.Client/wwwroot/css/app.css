@@ -18,3 +18,69 @@
     height: 100%;
     width: 100%;
 }
+
+.ant-list-item {
+    width: 33.3333%;
+    padding: 5px !important;
+}
+
+
+/* 每个小图片框 */
+.img-div {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+    .img-div:hover {
+        /*z-index: 10;*/
+        box-shadow: 0 0 20px #000;
+    }
+
+        .img-div:hover .down {
+            left: 0;
+            display: inline-block;
+        }
+/* 下载框 */
+.down {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #000;
+    background: rgba(0, 0, 0, .7);
+    filter: alpha(opacity=70);
+    font-size: 13px;
+    padding: 10px;
+    line-height: 22px;
+    left: -130px;
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    overflow-y: auto;
+}
+
+    .down li {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAADe3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t4RmXU5AAAACnRSTlMAsKAQW6Z5c2lOCqK00wAAAEJJREFUCNdjwAaYVq1SIMAwNl21KtgYyMhaBQTLgAx2EKMAJNe1atUKsGKWVascICZ6LYEazTkB1SpBMAAyVoEBAwBXFRj52xzkuAAAAABJRU5ErkJggg==) no-repeat;
+        background-position: 0 2px;
+        padding-left: 20px;
+    }
+
+    .down a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .down a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
